@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#07111f" />
+  <meta name="description" content="Instalación profesional de CCTV, cercas eléctricas, portones automáticos, videoporteros, control de acceso y cableado estructurado." />
+  <title>Seguridad & Redes | CCTV · Automatización · Cableado</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- CAMBIA EL NOMBRE, WHATSAPP Y DATOS EN script.js > BUSINESS_CONFIG -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__lens">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <p>Activando sistemas<span class="loader__dots">...</span></p>
+  </div>
+
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor cursor--dot" aria-hidden="true"></div>
+  <div class="cursor cursor--ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="inicio">
+    <nav class="nav container" aria-label="Navegación principal">
+      <a href="#inicio" class="brand magnetic" aria-label="Inicio">
+        <span class="brand__mark"><i class="fa-solid fa-shield-halved"></i></span>
+        <span class="brand__text"><strong>SEGURIDAD</strong><small>& REDES</small></span>
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+
+      <div class="nav__links" id="navLinks">
+        <a href="#inicio">Inicio</a>
+        <div class="nav__mega-wrap">
+          <button class="nav__mega-trigger" type="button">
+            Servicios <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="mega-menu">
+            <div class="mega-menu__intro">
+              <span class="eyebrow">SOLUCIONES</span>
+              <h3>Seguridad, automatización y conectividad</h3>
+              <p>Una sola instalación. Todo integrado y listo para usarse.</p>
+              <a href="#servicios" class="text-link">Ver todos <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="mega-menu__grid">
+              <a href="#cctv" class="mega-card">
+                <span><i class="fa-solid fa-video"></i></span>
+                <div><strong>CCTV</strong><small>Bullet · Domo · PTZ · IP</small></div>
+              </a>
+              <a href="#cercas" class="mega-card">
+                <span><i class="fa-solid fa-bolt"></i></span>
+                <div><strong>Cerca eléctrica</strong><small>Protección perimetral</small></div>
+              </a>
+              <a href="#portones" class="mega-card">
+                <span><i class="fa-solid fa-door-open"></i></span>
+                <div><strong>Portones</strong><small>Corredizos · Abatibles</small></div>
+              </a>
+              <a href="#acceso" class="mega-card">
+                <span><i class="fa-solid fa-fingerprint"></i></span>
+                <div><strong>Acceso & timbres</strong><small>Biometría · Videoportero</small></div>
+              </a>
+              <a href="#redes" class="mega-card mega-card--wide">
+                <span><i class="fa-solid fa-network-wired"></i></span>
+                <div><strong>Cableado estructurado</strong><small>UTP · Racks · Switches · Wi‑Fi · Voz y datos</small></div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <a href="#proceso">Cómo trabajamos</a>
+        <a href="#marcas">Marcas</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <a class="btn btn--small btn--outline magnetic nav__cta" href="#cotizar">
+        Cotizar <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section">
+      <div class="hero__orb hero__orb--1"></div>
+      <div class="hero__orb hero__orb--2"></div>
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <div class="status-pill">
+            <span class="status-pill__dot"></span>
+            Instalación profesional · Soluciones a la medida
+          </div>
+          <h1>
+            Tu propiedad.
+            <span class="gradient-text">Bajo control.</span>
+          </h1>
+          <p class="hero__lead">
+            CCTV, cercas eléctricas, portones automáticos, videoporteros, control de acceso y cableado estructurado para hogares y negocios.
+          </p>
+          <div class="hero__actions">
+            <a href="#cotizar" class="btn btn--primary magnetic">
+              Solicitar cotización <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#ubicaciones" class="btn btn--ghost magnetic">
+              <i class="fa-solid fa-location-crosshairs"></i> Ver soluciones
+            </a>
+          </div>
+          <div class="hero__trust">
+            <div><strong>24/7</strong><span>Monitoreo remoto</span></div>
+            <div><strong>HD / 4K</strong><span>Imagen de alta definición</span></div>
+            <div><strong>App</strong><span>Control desde celular</span></div>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal reveal--delay" id="heroVisual">
+          <div class="security-stage tilt-card" data-tilt="10">
+            <div class="security-stage__glow"></div>
+            <div class="camera-3d">
+              <div class="camera-3d__mount"></div>
+              <div class="camera-3d__body">
+                <div class="camera-3d__lens">
+                  <span></span>
+                </div>
+                <div class="camera-3d__led"></div>
+              </div>
+            </div>
+            <div class="scan-line"></div>
+            <div class="hud hud--top">
+              <span><i class="fa-solid fa-circle"></i> EN VIVO</span>
+              <strong>CAM-01</strong>
+            </div>
+            <div class="hud hud--bottom">
+              <div><i class="fa-solid fa-person-walking"></i><span>Detección IA</span></div>
+              <div><i class="fa-solid fa-moon"></i><span>Visión nocturna</span></div>
+            </div>
+            <div class="float-badge float-badge--1"><i class="fa-solid fa-wifi"></i></div>
+            <div class="float-badge float-badge--2"><i class="fa-solid fa-lock"></i></div>
+            <div class="float-badge float-badge--3"><i class="fa-solid fa-mobile-screen"></i></div>
+          </div>
+        </div>
+      </div>
+      <a href="#servicios" class="scroll-indicator" aria-label="Ir a servicios">
+        <span></span><small>Explorar</small>
+      </a>
+    </section>
+
+    <section class="brand-strip section-sm" id="marcas">
+      <div class="container reveal">
+        <p class="center-kicker">TECNOLOGÍA QUE CONOCES Y EN LA QUE PUEDES CONFIAR</p>
+        <div class="brand-marquee">
+          <div class="brand-marquee__track">
+            <div class="brand-logo"><img src="assets/hikvision.png" alt="Hikvision"></div>
+            <div class="brand-logo"><img src="assets/dahua.png" alt="Dahua Technology"></div>
+            <div class="brand-logo"><img src="assets/epcom.png" alt="Epcom"></div>
+            <div class="brand-logo"><img src="assets/panduit.png" alt="Panduit"></div>
+            <div class="brand-logo"><img src="assets/hikvision.png" alt="" aria-hidden="true"></div>
+            <div class="brand-logo"><img src="assets/dahua.png" alt="" aria-hidden="true"></div>
+            <div class="brand-logo"><img src="assets/epcom.png" alt="" aria-hidden="true"></div>
+            <div class="brand-logo"><img src="assets/panduit.png" alt="" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="servicios">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">NUESTROS SERVICIOS</span>
+            <h2>Todo lo que necesitas para <span class="gradient-text">proteger y conectar</span> tu espacio</h2>
+          </div>
+          <p>Diseñamos cada sistema según el inmueble, los puntos de riesgo y la forma en que quieres operarlo.</p>
+        </div>
+
+        <div class="services__grid">
+          <article class="service-card tilt-card reveal" data-tilt="7" id="cctv">
+            <div class="service-card__top">
+              <span class="service-card__icon"><i class="fa-solid fa-video"></i></span>
+              <span class="service-card__num">01</span>
+            </div>
+            <h3>Cámaras CCTV</h3>
+            <p>Videovigilancia con monitoreo remoto, grabación local, visión nocturna y detección inteligente.</p>
+            <div class="chip-row"><span>IP</span><span>4K</span><span>PTZ</span><span>ColorVu</span></div>
+            <a href="#ubicaciones" class="card-link">Explorar CCTV <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+
+          <article class="service-card tilt-card reveal" data-tilt="7" id="cercas">
+            <div class="service-card__top">
+              <span class="service-card__icon"><i class="fa-solid fa-bolt"></i></span>
+              <span class="service-card__num">02</span>
+            </div>
+            <h3>Cercas eléctricas</h3>
+            <p>Protección perimetral para viviendas, comercios, bodegas y terrenos con señalización y respaldo.</p>
+            <div class="chip-row"><span>Alarma</span><span>Respaldo</span><span>Perímetro</span></div>
+            <a href="#cotizar" class="card-link">Cotizar sistema <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+
+          <article class="service-card tilt-card reveal" data-tilt="7" id="portones">
+            <div class="service-card__top">
+              <span class="service-card__icon"><i class="fa-solid fa-door-open"></i></span>
+              <span class="service-card__num">03</span>
+            </div>
+            <h3>Portones automáticos</h3>
+            <p>Automatización de portones corredizos y abatibles con controles, sensores y apertura remota.</p>
+            <div class="chip-row"><span>Motor</span><span>Sensor</span><span>Remoto</span></div>
+            <a href="#cotizar" class="card-link">Automatizar portón <i class="fa-solid fa-arrow-right"></i></a>
+          </article>
+
+          <article class="service-card service-card--visual tilt-card reveal" data-tilt="7" id="acceso">
+            <div class="service-card__media">
+              <img src="assets/smart-lock.png" alt="Cerradura inteligente y control de acceso">
+            </div>
+            <div class="service-card__content">
+              <div class="service-card__top">
+                <span class="service-card__icon"><i class="fa-solid fa-fingerprint"></i></span>
+                <span class="service-card__num">04</span>
+              </div>
+              <h3>Control de acceso & videoporteros</h3>
+              <p>Biometría, tarjetas, cerraduras inteligentes, timbres con cámara e intercomunicación.</p>
+              <a href="#cotizar" class="card-link">Ver opciones <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+
+          <article class="service-card service-card--wide tilt-card reveal" data-tilt="5" id="redes">
+            <div>
+              <div class="service-card__top">
+                <span class="service-card__icon"><i class="fa-solid fa-network-wired"></i></span>
+                <span class="service-card__num">05</span>
+              </div>
+              <h3>Cableado estructurado</h3>
+              <p>Redes ordenadas, escalables y certificables para oficinas, escuelas, comercios e instalaciones industriales.</p>
+              <div class="chip-row"><span>Cat 6 / 6A</span><span>Racks</span><span>Patch panel</span><span>Switches</span><span>Wi‑Fi</span></div>
+              <a href="#cotizar" class="card-link">Diseñar mi red <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="network-visual" aria-hidden="true">
+              <span class="node node--1"></span><span class="node node--2"></span><span class="node node--3"></span><span class="node node--4"></span>
+              <div class="rack"><i class="fa-solid fa-server"></i><span></span><span></span><span></span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section placement" id="ubicaciones">
+      <div class="container placement__grid">
+        <div class="placement__copy reveal">
+          <span class="eyebrow">¿DÓNDE INSTALAMOS?</span>
+          <h2>Cámaras pensadas para <span class="gradient-text">cada espacio</span></h2>
+          <p>Selecciona un tipo de inmueble. El mapa muestra puntos típicos de instalación y qué buscamos proteger en cada zona.</p>
+
+          <div class="location-tabs" role="tablist" aria-label="Tipos de inmueble">
+            <button class="location-tab is-active" data-place="hogar" role="tab">Hogar</button>
+            <button class="location-tab" data-place="comercio" role="tab">Comercio</button>
+            <button class="location-tab" data-place="restaurante" role="tab">Restaurante</button>
+            <button class="location-tab" data-place="escuela" role="tab">Escuela</button>
+            <button class="location-tab" data-place="oficina" role="tab">Oficina</button>
+            <button class="location-tab" data-place="bodega" role="tab">Bodega</button>
+          </div>
+
+          <div class="placement__detail" id="placementDetail">
+            <div><span>01</span><p><strong>Accesos principales</strong><small>Identificación de personas y vehículos.</small></p></div>
+            <div><span>02</span><p><strong>Perímetro</strong><small>Prevención de intrusiones y puntos ciegos.</small></p></div>
+            <div><span>03</span><p><strong>Áreas críticas</strong><small>Supervisión donde realmente importa.</small></p></div>
+          </div>
+        </div>
+
+        <div class="placement__visual reveal reveal--delay">
+          <div class="floorplan tilt-card" data-tilt="5">
+            <div class="floorplan__header">
+              <div><span class="live-dot"></span><strong id="floorTitle">HOGAR · PROPUESTA CCTV</strong></div>
+              <span>Vista técnica</span>
+            </div>
+            <div class="floorplan__grid" id="floorGrid">
+              <div class="room room--a">ACCESO</div>
+              <div class="room room--b">COCHERA</div>
+              <div class="room room--c">PATIO</div>
+              <div class="room room--d">INTERIOR</div>
+              <button class="camera-point p1" aria-label="Cámara 1"><i class="fa-solid fa-video"></i><span>CAM 01</span></button>
+              <button class="camera-point p2" aria-label="Cámara 2"><i class="fa-solid fa-video"></i><span>CAM 02</span></button>
+              <button class="camera-point p3" aria-label="Cámara 3"><i class="fa-solid fa-video"></i><span>CAM 03</span></button>
+              <button class="camera-point p4" aria-label="Cámara 4"><i class="fa-solid fa-video"></i><span>CAM 04</span></button>
+              <div class="coverage coverage--1"></div>
+              <div class="coverage coverage--2"></div>
+              <div class="coverage coverage--3"></div>
+              <div class="coverage coverage--4"></div>
+            </div>
+            <div class="floorplan__footer">
+              <span><i class="fa-solid fa-circle-check"></i> Cobertura sugerida</span>
+              <span id="cameraCount">4 cámaras</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section benefits">
+      <div class="container">
+        <div class="benefits__panel reveal">
+          <div class="benefits__content">
+            <span class="eyebrow">MÁS QUE INSTALAR EQUIPO</span>
+            <h2>Te entregamos un sistema <span class="gradient-text">listo para usar</span></h2>
+            <p>La instalación termina cuando sabes usarla. Configuramos, probamos y te explicamos todo antes de entregar.</p>
+            <div class="benefit-list">
+              <div><i class="fa-solid fa-mobile-screen-button"></i><span><strong>App configurada</strong><small>Visualiza cámaras y recibe alertas desde tu celular.</small></span></div>
+              <div><i class="fa-solid fa-route"></i><span><strong>Cableado ordenado</strong><small>Rutas limpias, identificadas y pensadas para mantenimiento.</small></span></div>
+              <div><i class="fa-solid fa-shield"></i><span><strong>Pruebas de funcionamiento</strong><small>Validamos grabación, red, alimentación y acceso remoto.</small></span></div>
+            </div>
+          </div>
+          <div class="phone-mockup" aria-hidden="true">
+            <div class="phone-mockup__notch"></div>
+            <div class="phone-mockup__screen">
+              <div class="phone-ui__top"><strong>Mi propiedad</strong><span><i class="fa-solid fa-wifi"></i> Online</span></div>
+              <div class="phone-ui__video"><div class="scan-line"></div><i class="fa-solid fa-video"></i><span>CAM-01 · Entrada</span></div>
+              <div class="phone-ui__controls">
+                <button><i class="fa-solid fa-volume-high"></i></button>
+                <button><i class="fa-solid fa-expand"></i></button>
+                <button><i class="fa-solid fa-camera"></i></button>
+              </div>
+              <div class="phone-ui__event"><span><i class="fa-solid fa-person"></i></span><p><strong>Movimiento detectado</strong><small>Hace 2 min · Acceso principal</small></p></div>
+              <div class="phone-ui__event"><span><i class="fa-solid fa-car"></i></span><p><strong>Vehículo detectado</strong><small>Hace 18 min · Cochera</small></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="proceso">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">ASÍ TRABAJAMOS</span>
+            <h2>Simple, claro y <span class="gradient-text">sin sorpresas</span></h2>
+          </div>
+          <p>Un proceso corto para que sepas qué se instalará, cuánto costará y cómo funcionará.</p>
+        </div>
+        <div class="process__timeline">
+          <div class="process-step reveal"><span class="process-step__num">01</span><i class="fa-solid fa-comments"></i><h3>Cuéntanos qué necesitas</h3><p>Identificamos tipo de inmueble, zonas de riesgo y objetivo del sistema.</p></div>
+          <div class="process-step reveal"><span class="process-step__num">02</span><i class="fa-solid fa-compass-drafting"></i><h3>Diseñamos la solución</h3><p>Definimos equipos, ubicaciones, cableado, almacenamiento y automatización.</p></div>
+          <div class="process-step reveal"><span class="process-step__num">03</span><i class="fa-solid fa-screwdriver-wrench"></i><h3>Instalamos y configuramos</h3><p>Montaje profesional, pruebas, aplicación móvil y ajustes finales.</p></div>
+          <div class="process-step reveal"><span class="process-step__num">04</span><i class="fa-solid fa-graduation-cap"></i><h3>Te enseñamos a usarlo</h3><p>Entrega, capacitación básica y recomendaciones de mantenimiento.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="container faq__grid">
+        <div class="faq__intro reveal">
+          <span class="eyebrow">PREGUNTAS FRECUENTES</span>
+          <h2>Antes de instalar, <span class="gradient-text">resolvemos tus dudas</span></h2>
+          <p>Estas son algunas de las preguntas que normalmente surgen al cotizar un sistema.</p>
+          <a href="#cotizar" class="btn btn--outline magnetic">Tengo otra pregunta <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="accordion reveal">
+          <article class="accordion__item is-open">
+            <button><span>¿Puedo ver las cámaras desde mi celular?</span><i class="fa-solid fa-plus"></i></button>
+            <div class="accordion__content"><p>Sí. Configuramos la aplicación compatible con el sistema para ver en vivo, revisar grabaciones y recibir notificaciones cuando el equipo lo permita.</p></div>
+          </article>
+          <article class="accordion__item">
+            <button><span>¿Qué tipo de cámara necesito?</span><i class="fa-solid fa-plus"></i></button>
+            <div class="accordion__content"><p>Depende de distancia, iluminación, ángulo, ubicación interior o exterior y el nivel de detalle que necesites. Por eso se recomienda valorar primero el espacio.</p></div>
+          </article>
+          <article class="accordion__item">
+            <button><span>¿Instalan equipos que yo ya compré?</span><i class="fa-solid fa-plus"></i></button>
+            <div class="accordion__content"><p>Puede evaluarse la compatibilidad y estado de los equipos antes de instalarlos. Así se evita montar dispositivos que no cubran el objetivo del proyecto.</p></div>
+          </article>
+          <article class="accordion__item">
+            <button><span>¿Pueden integrar CCTV, portón y control de acceso?</span><i class="fa-solid fa-plus"></i></button>
+            <div class="accordion__content"><p>Sí, cuando los dispositivos son compatibles se puede diseñar una solución integrada para concentrar seguridad, automatización y accesos.</p></div>
+          </article>
+          <article class="accordion__item">
+            <button><span>¿Realizan mantenimiento?</span><i class="fa-solid fa-plus"></i></button>
+            <div class="accordion__content"><p>La página está preparada para ofrecer mantenimiento preventivo y correctivo. Puedes ajustar esta respuesta a los servicios reales de tu microempresa.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quote" id="cotizar">
+      <div class="container">
+        <div class="quote__panel reveal">
+          <div class="quote__copy">
+            <span class="eyebrow">COTIZA TU PROYECTO</span>
+            <h2>Cuéntanos qué quieres <span class="gradient-text">proteger o automatizar</span></h2>
+            <p>Selecciona el servicio y genera un mensaje listo para enviar por WhatsApp.</p>
+            <div class="quote__contact">
+              <a href="#" id="phoneLink"><i class="fa-solid fa-phone"></i><span><small>Teléfono</small><strong id="phoneText">00 0000 0000</strong></span></a>
+              <a href="#" id="whatsappLink"><i class="fa-brands fa-whatsapp"></i><span><small>WhatsApp</small><strong>Respuesta directa</strong></span></a>
+            </div>
+          </div>
+
+          <form class="quote-form" id="quoteForm">
+            <label>Nombre<input type="text" name="name" placeholder="¿Cómo te llamas?" required></label>
+            <label>Servicio
+              <select name="service" required>
+                <option value="">Selecciona una opción</option>
+                <option>Cámaras CCTV</option>
+                <option>Cerca eléctrica</option>
+                <option>Portón automático</option>
+                <option>Videoportero / timbre</option>
+                <option>Control de acceso</option>
+                <option>Cableado estructurado</option>
+                <option>Mantenimiento</option>
+              </select>
+            </label>
+            <label>Tipo de inmueble
+              <select name="property">
+                <option>Casa / residencia</option>
+                <option>Comercio</option>
+                <option>Oficina</option>
+                <option>Escuela</option>
+                <option>Restaurante</option>
+                <option>Bodega / industria</option>
+                <option>Otro</option>
+              </select>
+            </label>
+            <label>Cuéntanos un poco<textarea name="message" rows="4" placeholder="Ej. Quiero 4 cámaras para exterior y verlas desde mi celular..."></textarea></label>
+            <button class="btn btn--primary btn--full magnetic" type="submit">Enviar por WhatsApp <i class="fa-brands fa-whatsapp"></i></button>
+            <small class="form-note"><i class="fa-solid fa-lock"></i> El formulario no almacena datos; solo prepara el mensaje.</small>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div>
+        <a href="#inicio" class="brand">
+          <span class="brand__mark"><i class="fa-solid fa-shield-halved"></i></span>
+          <span class="brand__text"><strong>SEGURIDAD</strong><small>& REDES</small></span>
+        </a>
+        <p>Seguridad electrónica, automatización y conectividad con una instalación limpia y profesional.</p>
+      </div>
+      <div><strong>Servicios</strong><a href="#cctv">CCTV</a><a href="#cercas">Cercas eléctricas</a><a href="#portones">Portones</a><a href="#redes">Cableado</a></div>
+      <div><strong>Información</strong><a href="#proceso">Proceso</a><a href="#marcas">Marcas</a><a href="#faq">Preguntas frecuentes</a><a href="#cotizar">Cotizar</a></div>
+      <div><strong>Contacto</strong><a href="#" id="footerPhone">00 0000 0000</a><a href="#" id="footerWhatsapp">WhatsApp</a><span id="serviceArea">Área de cobertura: personalizable</span></div>
+    </div>
+    <div class="container footer__bottom"><span>© <span id="year"></span> Seguridad & Redes</span><span>Diseño responsive · Optimizado para móvil</span></div>
+  </footer>
+
+  <a href="#" class="whatsapp-float magnetic" id="floatingWhatsapp" aria-label="Contactar por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
